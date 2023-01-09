@@ -1,0 +1,10 @@
+<h2>All presents</h2>
+
+{{#each presents}}
+<img src="{{imageUrl}}" alt="{{presentName}}">
+<p> {{presentName}}</p>
+<a href="/presents/{{id}}/edit"><button>Edit</button></a>
+<form action="/presents/{{id}}/delete" method="post">
+    <button type="submit">Delete</button>
+</form>
+{{/each}}

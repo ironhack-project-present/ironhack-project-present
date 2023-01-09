@@ -14,11 +14,11 @@ const presentSchema = new Schema({
   },
   imageUrl: {
     type: String,
-    required: true,
+    required: false,
   },
   motivations: {
     type: String,
-    required: false,
+    required: true,
   },
   user: { type: Schema.Types.ObjectId, ref: "User" },
 });
