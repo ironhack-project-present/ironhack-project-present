@@ -1,0 +1,10 @@
+<p>This is your friend {{friendName}} profile page!</p>
+
+<p>{{cty}}</p>
+<img style="width: 150px" src="{{avatar}}" alt="avatar picture">
+<br>
+<a href="/friends/{{_id}}/edit"><button>Edit</button></a>
+<form action="/friends/{{_id}}/delete" method="post">
+    <button type="submit">Delete</button>
+
+</form>
