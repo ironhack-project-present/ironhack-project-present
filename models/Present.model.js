@@ -6,7 +6,7 @@ const presentSchema = new Schema({
     type: String,
     trim: true,
     required: true,
-    unique: true,
+    unique: false,
   },
   description: {
     type: String,
