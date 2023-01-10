@@ -20,7 +20,7 @@ const presentSchema = new Schema({
     type: String,
     required: true,
   },
-  user: { type: Schema.Types.ObjectId, ref: "User" },
+  friend: { type: Schema.Types.ObjectId, ref: "Friend" },
 });
 
 const Present = model("Present", presentSchema);
