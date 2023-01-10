@@ -2,7 +2,7 @@
 
 {{#each friends}}
 <img src="{{avatar}}" alt="{{friendName}}">
-<p> <a href="/friends/{{_id}}" >{{friendName}}</a>  </p> 
+<p> <a href="/friends/{{_id}}" >{{friendName}}</a> </p> 
 
 <form action="/friends/{{id}}/delete" method="post">
     <button type="submit">Delete</button>
