@@ -9,3 +9,16 @@
 <form action="/friends/{{_id}}/delete" method="post">
     <button type="submit">Delete</button>
 </form>
+
+
+
+
+<form action="/friends/{{_id}}/">
+  <label for="present">Choose a present:</label>
+  <select id="present" name="present">
+    {{#each presents}}
+    <option value="{{presentName}}">{{presentName}}</option>
+    {{/each}}
+  </select>
+  <button type="submit">Add to {{friendName}}</button>
+</form>

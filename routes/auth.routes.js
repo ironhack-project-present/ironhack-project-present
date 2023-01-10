@@ -4,15 +4,17 @@ const saltRounds = 10;
 
 const User = require("../models/User.model");
 
+const { isLoggedIn, isLoggedOut} = require('../middleware/route.guard');
+
 //get signup
 
-router.get("/signup", (req, res) => {
+router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
 });
 
 //post signup
 
-router.post("/signup", async (req, res) => {
+router.post("/signup", isLoggedOut,  async (req, res) => {
   const { username, email, password } = req.body;
 
   if (!username || !email || !password) {
@@ -35,13 +37,15 @@ router.post("/signup", async (req, res) => {
 
 //get profile
 
-router.get("/profile", (req, res) => {
+router.get("/profile", isLoggedIn, (req, res) => {
+  const { currentUser } = req.session;
+  currentUser.loggedIn = true;
   res.render("auth/profile", req.session.currentUser);
 });
 
 //get login
 
-router.get("/login", (req, res) => {
+router.get("/login", isLoggedOut, (req, res) => {
   const { username, email, password } = req.body;
 
   if (!username || !email || !password) {
@@ -55,7 +59,7 @@ router.get("/login", (req, res) => {
 
 //post login
 
-router.post("/login", (req, res) => {
+router.post("/login", isLoggedOut, (req, res) => {
   console.log("SESSION =====> ", req.session);
   const { username, password } = req.body;
   console.log("req.body", req.body);
@@ -87,7 +91,7 @@ router.post("/login", (req, res) => {
 
 //post logout
 
-router.post("/logout", (req, res) => {
+router.post("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) console.log(err);
     res.redirect("/");
