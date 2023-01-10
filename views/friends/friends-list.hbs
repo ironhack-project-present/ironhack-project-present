@@ -1,5 +1,10 @@
 <h2>Friends List</h2>
 
 {{#each friends}}
-<p>{{friendName}}</p>
+<img src="{{avatar}}" alt="{{friendName}}">
+<p> <a href="/friends/{{_id}}" >{{friendName}}</a> </p> 
+
+<form action="/friends/{{id}}/delete" method="post">
+    <button type="submit">Delete</button>
+</form>
 {{/each}}
