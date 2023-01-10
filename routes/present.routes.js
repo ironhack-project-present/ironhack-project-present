@@ -2,22 +2,30 @@ const express = require("express");
 const { response } = require("../app");
 const router = express.Router();
 
+const { isLoggedIn } = require('../middleware/route.guard');
+
 //require the present model
 const Present = require("../models/Present.model");
 
 //list of presents
-router.get("/list", (req, res, next) => {
+router.get("/list", isLoggedIn, (req, res, next) => {
+  const { currentUser } = req.session;
+  currentUser.loggedIn = true;
   Present.find()
     .then((presents) => res.render("presents/list", { presents }))
     .catch((err) => console.log(err));
 });
 
 //create present
-router.get("/create", (req, res, next) => {
-  res.render("presents/create");
+router.get("/create", isLoggedIn, (req, res, next) => {
+  const { currentUser } = req.session;
+  currentUser.loggedIn = true;
+  res.render("presents/create", req.session.currentUser);
 });
 
-router.post("/create", (req, res, next) => {
+router.post("/create", isLoggedIn,  (req, res, next) => {
+  const { currentUser } = req.session;
+  currentUser.loggedIn = true;
   // if (req.body.imageUrl === "") {
   //   const imgUrl =
   //     "https://cdn.pixabay.com/photo/2013/07/12/13/43/present-147168_1280.png";
@@ -39,7 +47,9 @@ router.post("/create", (req, res, next) => {
 });
 
 //edit present
-router.get("/:id/edit", (req, res, next) => {
+router.get("/:id/edit", isLoggedIn, (req, res, next) => {
+  const { currentUser } = req.session;
+  currentUser.loggedIn = true;
   const { id } = req.params;
 
   Present.findById(id)
@@ -47,7 +57,9 @@ router.get("/:id/edit", (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/:id/edit", (req, res, next) => {
+router.post("/:id/edit", isLoggedIn, (req, res, next) => {
+  const { currentUser } = req.session;
+  currentUser.loggedIn = true;
   const { presentName, description, imageUrl, motivations } = req.body;
   const { id } = req.params;
 
@@ -62,7 +74,9 @@ router.post("/:id/edit", (req, res, next) => {
 });
 
 //delete present
-router.post("/:id/delete", (req, res, next) => {
+router.post("/:id/delete", isLoggedIn, (req, res, next) => {
+  const { currentUser } = req.session;
+  currentUser.loggedIn = true;
   const { id } = req.params;
 
   Present.findByIdAndDelete(id)
