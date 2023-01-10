@@ -14,16 +14,18 @@ router.get("/list", (req, res, next) => {
 
 //create present
 router.get("/create", (req, res, next) => {
-  if (req.body.imageUrl === "") {
-    const img = document.createElement("img");
-    img.src =
-      "https://cdn.pixabay.com/photo/2013/07/12/13/43/present-147168_1280.png";
-    document.body.appendChild(img);
-  }
   res.render("presents/create");
 });
 
 router.post("/create", (req, res, next) => {
+  // if (req.body.imageUrl === "") {
+  //   const imgUrl =
+  //     "https://cdn.pixabay.com/photo/2013/07/12/13/43/present-147168_1280.png";
+  //   const { presentName, description, motivations } = req.body;
+  // } else {
+  //   const { presentName, description, imageUrl, motivations } = req.body;
+  // }
+
   const { presentName, description, imageUrl, motivations } = req.body;
 
   Present.create({

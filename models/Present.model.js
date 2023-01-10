@@ -4,9 +4,7 @@ const { Schema, model } = require("mongoose");
 const presentSchema = new Schema({
   presentName: {
     type: String,
-    trim: true,
     required: true,
-    unique: false,
   },
   description: {
     type: String,
@@ -20,7 +18,7 @@ const presentSchema = new Schema({
     type: String,
     required: true,
   },
-  user: { type: Schema.Types.ObjectId, ref: "User" },
+  friendId: { type: Schema.Types.ObjectId, ref: "Friend" },
 });
 
 const Present = model("Present", presentSchema);
