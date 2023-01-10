@@ -18,6 +18,14 @@ router.get("/create", (req, res, next) => {
 });
 
 router.post("/create", (req, res, next) => {
+  // if (req.body.imageUrl === "") {
+  //   const imgUrl =
+  //     "https://cdn.pixabay.com/photo/2013/07/12/13/43/present-147168_1280.png";
+  //   const { presentName, description, motivations } = req.body;
+  // } else {
+  //   const { presentName, description, imageUrl, motivations } = req.body;
+  // }
+
   const { presentName, description, imageUrl, motivations } = req.body;
 
   Present.create({
@@ -40,9 +48,6 @@ router.get("/:id/edit", (req, res, next) => {
 });
 
 router.post("/:id/edit", (req, res, next) => {
-  //   if (req.body.imageUrl === "") {
-
-  //   }
   const { presentName, description, imageUrl, motivations } = req.body;
   const { id } = req.params;
 
