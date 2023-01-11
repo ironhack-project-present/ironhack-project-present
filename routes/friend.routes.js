@@ -37,9 +37,16 @@ router.post("/add-friend", isLoggedIn, (req, res) => {
   }
 
   Friend.create({ friendName, friendSurname, birthday, city, avatar })
+    .then(newFriend => {        
+        return User.findById(currentUser.id)
+        .then((user) => {
+            user.friends.push(newFriend._id);
+            return user.save();
+        })
     .then(() => res.redirect("/friends/friends-list"))
     .catch((err) => console.log(err));
-});
+    });
+})
 //friend profile
 
 router.get("/:id", isLoggedIn, (req, res) => {
@@ -47,9 +54,11 @@ router.get("/:id", isLoggedIn, (req, res) => {
     currentUser.loggedIn = true;
     const { id } = req.params;
     Friend.findById(id)
+    // .populate('presentId')
     .then((foundFriend) => res.render("friends/friend-profile", {foundFriend, currentUser, loggedIn: true}))
     .catch((err) => console.log(err));
 });
+
 
 router.get("/:id", (req, res) => {
   // const { id } = req.params;
