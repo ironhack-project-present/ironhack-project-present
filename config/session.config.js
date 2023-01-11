@@ -5,7 +5,7 @@ module.exports = (app) => {
   // req.session
   app.use(
     session({
-      secret: "super safe secret",
+      secret: process.env.SECRET || "super safe secret",
       resave: false,
       saveUninitialized: true,
       store: MongoStore.create({
