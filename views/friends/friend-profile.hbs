@@ -1,9 +1,9 @@
-<p>This is your friend {{friendName}} profile page!</p>
+<p>This is your friend {{foundFriend.friendName}} profile page!</p>
 
-<p> Full name: {{friendName}} {{friendSurname}} </p>
-<p> City: {{city}}</p>
-<p> Birthday: {{birthday}}</p>
-<img style="width: 150px" src="{{avatar}}" alt="avatar picture">
+<p> Full name: {{foundFriend.friendName}} {{foundFriend.friendSurname}} </p>
+<p> City: {{foundFriend.city}}</p>
+<p> Birthday: {{foundFriend.birthday}}</p>
+<img style="width: 150px" src="{{foundFriend.avatar}}" alt="avatar picture">
 <br>
 <a href="/friends/{{_id}}/edit"><button>Edit</button></a>
 <form action="/friends/{{_id}}/delete" method="post">

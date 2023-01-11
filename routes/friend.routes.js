@@ -9,20 +9,20 @@ const { isLoggedIn } = require("../middleware/route.guard");
 const Friend = require("../models/Friend.model");
 
 //list of friends
-router.get("/friends-list", isLoggedIn, (req, res, next) => {
-  const { currentUser } = req.session;
-  currentUser.loggedIn = true;
-  Friend.find()
-    .then((friends) => res.render("friends/friends-list", { friends }))
-    .catch((err) => console.log(err));
-});
+router.get("/friends-list", isLoggedIn,  (req, res, next) => {
+    const { currentUser } = req.session;
+    currentUser.loggedIn = true;
+    Friend.find()
+      .then((friends) => res.render("friends/friends-list",  { friends, currentUser }))
+      .catch((err) => console.log(err));
+  });
 
 // ADD friend
-router.get("/add-friend", isLoggedIn, (req, res) => {
-  const { currentUser } = req.session;
-  currentUser.loggedIn = true;
-  res.render("friends/add-friend", req.session.currentUser);
-});
+router.get('/add-friend', isLoggedIn, (req, res) => {
+    const { currentUser } = req.session;
+    currentUser.loggedIn = true;
+    res.render('friends/add-friend', { currentUser });
+  });
 
 router.post("/add-friend", isLoggedIn, (req, res) => {
   const { currentUser } = req.session;
@@ -43,11 +43,11 @@ router.post("/add-friend", isLoggedIn, (req, res) => {
 //friend profile
 
 router.get("/:id", isLoggedIn, (req, res) => {
-  const { currentUser } = req.session;
-  currentUser.loggedIn = true;
-  const { id } = req.params;
-  Friend.findById(id)
-    .then((foundFriend) => res.render("friends/friend-profile", foundFriend))
+    const { currentUser } = req.session;
+    currentUser.loggedIn = true;
+    const { id } = req.params;
+    Friend.findById(id)
+    .then((foundFriend) => res.render("friends/friend-profile", {foundFriend, currentUser}))
     .catch((err) => console.log(err));
 });
 
