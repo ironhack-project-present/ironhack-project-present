@@ -29,7 +29,7 @@ router.post("/signup", isLoggedOut,  async (req, res) => {
 
   User.create({ username, email, password: passwordHash })
     .then((newUser) => {
-      req.session.currentUser = { username: newUser.username };
+      req.session.currentUser = { username: newUser.username, id: newUser.id };
       res.redirect(`/auth/profile`);
     })
     .catch((err) => console.log(err));
@@ -79,8 +79,8 @@ router.post("/login", isLoggedOut, (req, res) => {
         });
         return;
       } else if (bcrypt.compareSync(password, user.password)) {
-        const { username } = user;
-        req.session.currentUser = { username };
+        const { username, _id } = user;
+        req.session.currentUser = { username, id:_id };
         res.redirect("/auth/profile");
       } else {
         res.render("auth/login", { errorMessage: "Incorrect password." });

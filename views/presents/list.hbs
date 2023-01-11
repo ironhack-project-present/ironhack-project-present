@@ -13,11 +13,11 @@
 
 
 <form action="/friends/{{_id}}/">
-  <label for="present">Choose a present:</label>
+  <label for="present">Send to a friend</label>
   <select id="present" name="present">
-    {{#each presents}}
-    <option value="{{presentName}}">{{presentName}}</option>
+    {{#each foundUser.friends}}
+    <option value="{{this._id}}">{{this.friendName}}</option>
     {{/each}}
   </select>
-  <button type="submit">Add to {{friendName}}</button>
+  <button type="submit">Send to {{friendName}}</button>
 </form>

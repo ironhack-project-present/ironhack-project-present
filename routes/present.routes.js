@@ -1,6 +1,8 @@
 const express = require("express");
 const { response } = require("../app");
 const router = express.Router();
+const User = require("../models/User.model");
+const Friend = require("../models/Friend.model");
 
 const { isLoggedIn } = require('../middleware/route.guard');
 
@@ -11,9 +13,21 @@ const Present = require("../models/Present.model");
 router.get("/list", isLoggedIn, (req, res, next) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
+  console.log('currentUser', currentUser)
   Present.find()
-    .then((presents) => res.render("presents/list", { presents, currentUser, loggedIn: true  }))
+    .then((presents) =>{
+     return User.findById(req.session.currentUser.id)
+    .populate("friends")
+    .then((foundUser) => {
+      console.log('foundUser',foundUser) 
+     res.render("presents/list", { presents, foundUser, currentUser, loggedIn: true  })
+      })
+   .catch((err) => {
+      console.log(err);})
+    })
     .catch((err) => console.log(err));
+    
+    
 });
 
 //create present
