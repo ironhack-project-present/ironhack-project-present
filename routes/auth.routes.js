@@ -40,7 +40,7 @@ router.post("/signup", isLoggedOut,  async (req, res) => {
 router.get("/profile", isLoggedIn, (req, res) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
-  res.render("auth/profile", req.session.currentUser);
+  res.render("auth/profile", currentUser);
 });
 
 //get login
