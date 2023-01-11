@@ -4,21 +4,21 @@ const Present = require("../models/Present.model");
 const present = [
   {
     presentName: "doll",
-    motivation: "birthday",
+    motivations: "birthday",
     description: "very cute",
     imageUrl:
       "https://i.etsystatic.com/15153137/r/il/643fb0/2714945531/il_fullxfull.2714945531_grej.jpg",
   },
   {
     presentName: "lego",
-    motivation: "christmas",
+    motivations: "christmas",
     description: "expensive",
     imageUrl:
       "https://www.lego.com/cdn/cs/set/assets/bltb862bc546852bd71/42143.png",
   },
   {
     presentName: "dinosaur",
-    motivation: "birthday",
+    motivations: "birthday",
     description: "t-rex",
     imageUrl: "https://m.media-amazon.com/images/I/61xbgod3NSL._AC_SL1500_.jpg",
   },
