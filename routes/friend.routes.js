@@ -13,7 +13,7 @@ router.get("/friends-list", isLoggedIn,  (req, res, next) => {
     const { currentUser } = req.session;
     currentUser.loggedIn = true;
     Friend.find()
-      .then((friends) => res.render("friends/friends-list",  { friends, currentUser }))
+      .then((friends) => res.render("friends/friends-list",  { friends, currentUser, loggedIn: true }))
       .catch((err) => console.log(err));
   });
 
@@ -21,7 +21,7 @@ router.get("/friends-list", isLoggedIn,  (req, res, next) => {
 router.get('/add-friend', isLoggedIn, (req, res) => {
     const { currentUser } = req.session;
     currentUser.loggedIn = true;
-    res.render('friends/add-friend', { currentUser });
+    res.render('friends/add-friend', currentUser );
   });
 
 router.post("/add-friend", isLoggedIn, (req, res) => {
@@ -47,7 +47,7 @@ router.get("/:id", isLoggedIn, (req, res) => {
     currentUser.loggedIn = true;
     const { id } = req.params;
     Friend.findById(id)
-    .then((foundFriend) => res.render("friends/friend-profile", {foundFriend, currentUser}))
+    .then((foundFriend) => res.render("friends/friend-profile", {foundFriend, currentUser, loggedIn: true}))
     .catch((err) => console.log(err));
 });
 
@@ -65,17 +65,15 @@ router.get("/:id/edit", isLoggedIn, (req, res, next) => {
   const { id } = req.params;
 
   Friend.findById(id)
-    .then((foundFriend) => res.render("friends/update", foundFriend))
+    .then((foundFriend) => res.render("friends/update", {foundFriend, currentUser, loggedIn: true}))
     .catch((err) => console.log(err));
 });
 
 router.post("/:id/edit", isLoggedIn, (req, res, next) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
-  //   if (req.body.imageUrl === "") {
-
-  //   }
-  const { friendName, friendSurname, birthday, city, avatar } = req.body;
+  
+const { friendName, friendSurname, birthday, city, avatar } = req.body;
   const { id } = req.params;
 
   Friend.findByIdAndUpdate(id, {

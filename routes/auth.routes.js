@@ -14,7 +14,7 @@ router.get("/signup", isLoggedOut, (req, res) => {
 
 //post signup
 
-router.post("/signup", isLoggedIn,  async (req, res) => {
+router.post("/signup", isLoggedOut,  async (req, res) => {
   const { username, email, password } = req.body;
 
   if (!username || !email || !password) {

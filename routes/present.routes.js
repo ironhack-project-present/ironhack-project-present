@@ -12,7 +12,7 @@ router.get("/list", isLoggedIn, (req, res, next) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
   Present.find()
-    .then((presents) => res.render("presents/list", { presents }))
+    .then((presents) => res.render("presents/list", { presents, currentUser, loggedIn: true  }))
     .catch((err) => console.log(err));
 });
 
@@ -20,7 +20,7 @@ router.get("/list", isLoggedIn, (req, res, next) => {
 router.get("/create", isLoggedIn, (req, res, next) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
-  res.render("presents/create", req.session.currentUser);
+  res.render("presents/create", currentUser);
 });
 
 router.post("/create", isLoggedIn,  (req, res, next) => {
