@@ -20,7 +20,8 @@ const friendSchema = new Schema({
   },
   avatar: {
     type: String,
-    required: false,
+    default:
+      "https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?b=1&s=612x612&w=0&k=20&c=IJ1HiV33jl9wTVpneAcU2CEPdGRwuZJsBs_92uk_xNs=",
   },
   presentId: [{ type: Schema.Types.ObjectId, ref: "Present" }],
 });

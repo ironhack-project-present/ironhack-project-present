@@ -10,3 +10,67 @@ a {
 h1 {
   color: 15px;
 }
+
+.center {
+  color: rgb(181, 158, 26);
+  font: italic bold Georgia, Serif;
+  text-shadow: -2px 2px 0 #0a0e27;
+  height: 600px;
+  background: url(https://cdn.mos.cms.futurecdn.net/Nr6W2YcVvepZGyDaShd8wU.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.registration{
+  color: rgb(241, 206, 10);
+  font: italic bold Georgia, Serif;
+  text-shadow: 1px -1px 0 #0a0e27;
+  height: 600px;
+  background: url(https://wallpaperaccess.com/full/1693777.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.createFriend{
+  color: rgb(0, 91, 210);
+  font: italic bold Georgia, Serif;
+  text-shadow: -2px -2px 0 #0a0e27;
+  height: 600px;
+  background: url(https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZnJpZW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.createPresent{
+  color: rgba(0, 255, 247, 0.811);
+  font: italic bold Georgia, Serif;
+  text-shadow: -2px -2px 0 #0a0e27;
+  height: 600px;
+  background: url(https://www.incimages.com/uploaded_files/image/1920x1080/getty_845301446_385027.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
