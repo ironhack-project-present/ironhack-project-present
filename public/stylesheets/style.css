@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
 }
 
 a {
@@ -73,4 +74,26 @@ h1 {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.friends-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.friend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #dee2e6;
+  border-radius: 20px;
+  padding: 15px;
+  
+}
+.img {
+  width: 100px;
+  
+  border-radius: 20px;
 }

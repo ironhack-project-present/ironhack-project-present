@@ -1,19 +1,21 @@
-<h1>This is your friend {{foundFriend.friendName}} profile page!</h1>
+<h2>This is your friend {{foundFriend.friendName}} profile page!</h2>
 
-<h3> Full name: {{foundFriend.friendName}} {{foundFriend.friendSurname}} </h3>
-<h3> City: {{foundFriend.city}}</h3>
-<h3> Birthday: {{foundFriend.birthday}}</h3>
-<img style="width: 150px" src="{{foundFriend.avatar}}" alt="avatar picture">
+<h5> Full name: {{foundFriend.friendName}} {{foundFriend.friendSurname}} </h5>
+<h5> City: {{foundFriend.city}}</h5>
+<h5> Birthday: {{foundFriend.birthday}}</h5>
+<img class="img" src="{{foundFriend.avatar}}" alt="avatar picture">
 <br>
 {{!-- <form action="/friends/{{_id}}/delete" method="post">
     <button type="submit" class="btn btn-danger">Delete</button>
 </form> --}}
 <br>
 <br>
-<h2> Presents of {{foundFriend.friendName}}:</h2>
+<h3> Presents of {{foundFriend.friendName}}:</h3>
 
+<div class="friends-list" >
 {{#each foundFriend.presentId}}
-    <img style="width: 100px" src="{{this.imageUrl}}" alt="{{this.presentName}}">
+<div class="friend" >
+    <img class="img" src="{{this.imageUrl}}" alt="{{this.presentName}}">
     <p> {{this.presentName}}</p>
     <p> {{this.motivations}}</p>
     <p> {{this.description}}</p>
@@ -22,7 +24,9 @@
         <button type="submit">Delete</button>
 
     </form> --}}
+    </div>
 {{/each}}
+</div>
 
 {{!-- <form action="/friends/{{_id}}/">
   <label for="present">Choose a present:</label>
