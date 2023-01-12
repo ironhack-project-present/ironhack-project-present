@@ -110,3 +110,19 @@ a {
   background-color: rgb(125, 255, 251);
   padding: 20px;
 }
+
+.edit-present{
+  color: rgba(0, 170, 255, 0.811);
+  font: italic bold Georgia, Serif;
+  text-shadow: -2px -2px 0 #0a0e27;
+  height: 600px;
+  background: url(https://mgmtmagazine.com/wp-content/uploads/2019/05/indecisione.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
