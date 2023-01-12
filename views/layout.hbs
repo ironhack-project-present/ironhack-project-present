@@ -10,10 +10,11 @@
    </head>
 
    <body>
-    {{#if loggedIn}}
+   
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
+           {{!-- {{#if loggedIn}} --}}
           <li><a href="/auth/profile">Profile</a></li>
           <li><a href="/friends/add-friend">Add friend</a></li>
           <li><a href="/friends/friends-list">Friends list</a></li>
@@ -24,22 +25,14 @@
                 <button type="submit">Logout</button>
              </form>
           </li>
-        </ul>
-         
-      </nav>
-     {{else}}
-     <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
+          {{!-- {{else}} --}}
           <li><a href="/auth/signup">Signup</a></li>
           <li><a href="/auth/login">Login</a></li>
+          {{!-- {{/if}} --}}
         </ul>
          
       </nav>
-      
-     {{/if}}
 
-          
 
       {{{body}}}
 

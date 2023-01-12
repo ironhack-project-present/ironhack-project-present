@@ -7,15 +7,24 @@ const { isLoggedIn } = require("../middleware/route.guard");
 
 //require friend model
 const Friend = require("../models/Friend.model");
+const { find } = require("../models/User.model");
 
 //list of friends
 router.get("/friends-list", isLoggedIn,  (req, res, next) => {
     const { currentUser } = req.session;
     currentUser.loggedIn = true;
     Friend.find()
-      .then((friends) => res.render("friends/friends-list",  { friends, currentUser, loggedIn: true }))
+      .then((friends) => {
+        return User.findById(req.session.currentUser.id)
+    .populate("friends")
+    .then((foundUser) => {
+        res.render("friends/friends-list",  { friends, foundUser, currentUser, loggedIn: true })})
       .catch((err) => console.log(err));
-  });
+  })
+  .catch((err) => console.log(err));
+    
+    
+});
 
 // ADD friend
 router.get('/add-friend', isLoggedIn, (req, res) => {
@@ -54,18 +63,22 @@ router.get("/:id", isLoggedIn, (req, res) => {
     currentUser.loggedIn = true;
     const { id } = req.params;
     Friend.findById(id)
-    // .populate('presentId')
-    .then((foundFriend) => res.render("friends/friend-profile", {foundFriend, currentUser, loggedIn: true}))
-    .catch((err) => console.log(err));
-});
+    .then((foundFriend) => {
+        return Present.find()
+        // .populate('presentId')
+        .then((foundPresent) => {
+        res.render("friends/friend-profile", {foundFriend, foundPresent, currentUser, loggedIn: true})
+        })
+        .catch((err) => {
+            console.log(err);})
+          })
+          .catch((err) => console.log(err));
+    
+    
+        });
 
 
-router.get("/:id", (req, res) => {
-  // const { id } = req.params;
-  Present.find()
-    .then((presents) => res.render("friends/friend-profile", presents))
-    .catch((err) => console.log(err));
-});
+
 
 //edit friend profile
 router.get("/:id/edit", isLoggedIn, (req, res, next) => {
