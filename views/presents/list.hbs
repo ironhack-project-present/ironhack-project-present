@@ -1,4 +1,6 @@
+<div class="title">
 <h2>All presents</h2>
+</div>
 <div class="friends-list" >
 {{#each presents }}
 <div class="friend" >
@@ -22,7 +24,6 @@
     <option value="{{./this._id}}">{{./this.friendName}}</option>
     {{/each}}
   </select>
-  
     <button type="submit" class="btn btn-primary">Send present</button>
 </form>
 <br>
