@@ -4,17 +4,20 @@ const saltRounds = 10;
 
 const User = require("../models/User.model");
 
-const { isLoggedIn, isLoggedOut} = require('../middleware/route.guard');
+const { isLoggedIn, isLoggedOut } = require("../middleware/route.guard");
 
 //get signup
 
 router.get("/signup", isLoggedOut, (req, res) => {
-  res.render("auth/signup");
+  res.render("auth/signup", {
+    errorMessage:
+      "All fields are mandatory. Please provide your username, email and password.",
+  });
 });
 
 //post signup
 
-router.post("/signup", isLoggedOut,  async (req, res) => {
+router.post("/signup", isLoggedOut, async (req, res) => {
   const { username, email, password } = req.body;
 
   if (!username || !email || !password) {
@@ -80,7 +83,7 @@ router.post("/login", isLoggedOut, (req, res) => {
         return;
       } else if (bcrypt.compareSync(password, user.password)) {
         const { username, _id } = user;
-        req.session.currentUser = { username, id:_id };
+        req.session.currentUser = { username, id: _id };
         res.redirect("/auth/profile");
       } else {
         res.render("auth/login", { errorMessage: "Incorrect password." });
