@@ -1,15 +1,11 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  
+  background-color: black;
 }
 
 a {
   color: #00b7ff;
-}
-
-h1 {
-  color: 15px;
 }
 
 .center {
@@ -61,7 +57,7 @@ h1 {
 }
 
 .createPresent{
-  color: rgba(0, 255, 247, 0.811);
+  color: rgba(0, 170, 255, 0.811);
   font: italic bold Georgia, Serif;
   text-shadow: -2px -2px 0 #0a0e27;
   height: 600px;
@@ -78,8 +74,10 @@ h1 {
 
 .friends-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  background-color: rgb(125, 255, 251);
+  padding: 20px;
 }
 
 .friend {
@@ -87,13 +85,28 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #dee2e6;
+  background-color: #d3d3d4;
   border-radius: 20px;
-  padding: 15px;
-  
+  padding: 5px;
 }
+
 .img {
-  width: 100px;
-  
+  width: 130px;
   border-radius: 20px;
+}
+
+.title{
+  text-align: center;
+  background-color: rgb(201, 255, 253);
+  padding: 20px;
+}
+
+.title2{
+  background-color: rgb(201, 255, 253);
+  padding: 20px;
+}
+
+.list{
+  background-color: rgb(125, 255, 251);
+  padding: 20px;
 }
