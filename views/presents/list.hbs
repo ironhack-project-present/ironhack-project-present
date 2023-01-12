@@ -1,5 +1,5 @@
 <h2>All presents</h2>
-presents / 
+
 {{#each presents }}
     <img style="width: 100px" src="{{imageUrl}}" alt="{{presentName}}">
     <p> {{presentName}}</p>
@@ -12,7 +12,7 @@ presents /
 
 
 
-<form action="/friends/{{_id}}/">
+<form action="/presents/{{id}}" method="POST">
   <label for="present">Send to a friend</label>
   <select id="present" name="friend">
     {{#each ../foundUser.friends}}

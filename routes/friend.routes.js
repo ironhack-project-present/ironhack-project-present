@@ -63,20 +63,14 @@ router.get("/:id", isLoggedIn, (req, res) => {
     currentUser.loggedIn = true;
     const { id } = req.params;
     Friend.findById(id)
+     .populate('presentId')
     .then((foundFriend) => {
-        return Present.find()
-        // .populate('presentId')
-        .then((foundPresent) => {
-        res.render("friends/friend-profile", {foundFriend, foundPresent, currentUser, loggedIn: true})
+       console.log(foundFriend);
+        res.render("friends/friend-profile", {foundFriend, currentUser, loggedIn: true})
         })
         .catch((err) => {
             console.log(err);})
-          })
-          .catch((err) => console.log(err));
-    
-    
-        });
-
+          });
 
 
 
