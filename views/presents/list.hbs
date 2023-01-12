@@ -1,4 +1,5 @@
 <h2>All presents</h2>
+
 {{#each presents }}
     <img style="width: 100px" src="{{imageUrl}}" alt="{{presentName}}">
     <h3>Present: {{presentName}}</h3>
@@ -8,7 +9,12 @@
     <form action="/presents/{{id}}/delete" method="post">
       <button type="submit" class="btn btn-danger">Delete</button>
     </form>
-<form action="/friends/{{_id}}/">
+
+
+
+
+<form action="/presents/{{id}}" method="POST">
+
   <label for="present">Send to a friend</label>
   <select id="present" name="friend">
     {{#each ../foundUser.friends}}

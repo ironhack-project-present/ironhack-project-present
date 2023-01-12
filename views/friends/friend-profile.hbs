@@ -12,13 +12,25 @@
 <br>
 <h2> Presents of {{foundFriend.friendName}}:</h2>
 
-{{#each ../foundPresent.presents}}
-    <img style="width: 100px" src="{{./this.imageUrl}}" alt="{{this.presentName}}">
-    <p> {{./this.presentName}}</p>
+{{#each foundFriend.presentId}}
+    <img style="width: 100px" src="{{this.imageUrl}}" alt="{{this.presentName}}">
+    <p> {{this.presentName}}</p>
     <p> {{this.motivations}}</p>
     <p> {{this.description}}</p>
-    <a href="/presents/{{id}}/edit"><button>Edit</button></a>
-    <form action="/presents/{{id}}/delete" method="post">
+    
+    {{!-- <form action="/presents/{{id}}/delete" method="post">
         <button type="submit">Delete</button>
-    </form>
+
+    </form> --}}
 {{/each}}
+
+{{!-- <form action="/friends/{{_id}}/">
+  <label for="present">Choose a present:</label>
+  <select id="present" name="present">
+    {{#each presents}}
+    <option value="{{presentName}}">{{presentName}}</option>
+    {{/each}}
+  </select>
+  <button type="submit">Add to {{friendName}}</button>
+</form> --}}
+

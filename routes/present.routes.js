@@ -10,7 +10,7 @@ const { isLoggedIn } = require('../middleware/route.guard');
 const Present = require("../models/Present.model");
 
 //list of presents
-router.get("/list", isLoggedIn, (req, res, next) => {
+router.get("/presents/list", isLoggedIn, (req, res, next) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
   console.log('currentUser', currentUser)
@@ -19,25 +19,24 @@ router.get("/list", isLoggedIn, (req, res, next) => {
      return User.findById(req.session.currentUser.id)
     .populate("friends")
     .then((foundUser) => {
-      console.log('foundUser',foundUser) 
-     res.render("presents/list", { presents, foundUser, currentUser, loggedIn: true  })
-      })
-   .catch((err) => {
-      console.log(err);})
+    console.log('foundUser',foundUser) 
+    res.render("presents/list", { presents, foundUser, currentUser, loggedIn: true  })
+    })
+    .catch((err) => {
+    console.log(err);})
     })
     .catch((err) => console.log(err));
-    
-    
+   
 });
 
 //create present
-router.get("/create", isLoggedIn, (req, res, next) => {
+router.get("/presents/create", isLoggedIn, (req, res, next) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
   res.render("presents/create", currentUser);
 });
 
-router.post("/create", isLoggedIn,  (req, res, next) => {
+router.post("/presents/create", isLoggedIn,  (req, res, next) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
   // if (req.body.imageUrl === "") {
@@ -60,8 +59,37 @@ router.post("/create", isLoggedIn,  (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
+router.get('/presents/:id', (req,res,next)=>{
+  res.render('auth/profile')
+})
+
+// Send present route
+router.post("/presents/:id", isLoggedIn, (req, res, next) => {
+  const { currentUser } = req.session;
+  currentUser.loggedIn = true;
+  console.log('currentUser', currentUser)
+  const { id } = req.params; // Id of the present
+  const { friend } = req.body;
+  console.log('friend id' , friend);
+
+  Present.findById(id)
+    .then((foundPresent) => {
+      return Friend.findById(friend)
+      .then((foundFriend) => {
+      foundFriend.presentId.push(foundPresent)
+
+      foundFriend.save()
+
+      res.redirect(`/friends/${friend}`)})
+    })
+    .catch((err) => console.log(err));
+});
+
+
+
+
 //edit present
-router.get("/:id/edit", isLoggedIn, (req, res, next) => {
+router.get("/presents/:id/edit", isLoggedIn, (req, res, next) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
   const { id } = req.params;
@@ -71,7 +99,7 @@ router.get("/:id/edit", isLoggedIn, (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/:id/edit", isLoggedIn, (req, res, next) => {
+router.post("/presents/:id/edit", isLoggedIn, (req, res, next) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
   const { presentName, description, imageUrl, motivations } = req.body;
@@ -88,7 +116,7 @@ router.post("/:id/edit", isLoggedIn, (req, res, next) => {
 });
 
 //delete present
-router.post("/:id/delete", isLoggedIn, (req, res, next) => {
+router.post("/presents/:id/delete", isLoggedIn, (req, res, next) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
   const { id } = req.params;

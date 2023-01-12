@@ -34,7 +34,7 @@ const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
 const presentRoutes = require("./routes/present.routes");
-app.use("/presents", presentRoutes);
+app.use("/", presentRoutes);
 
 const friendRoutes = require("./routes/friend.routes");
 app.use("/friends", friendRoutes);
