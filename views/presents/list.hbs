@@ -1,10 +1,11 @@
 <h2>All presents</h2>
-
+<div class="friends-list" >
 {{#each presents }}
-    <img style="width: 100px" src="{{imageUrl}}" alt="{{presentName}}">
-    <h3>Present: {{presentName}}</h3>
-    <h3>Motivation: {{motivations}}</h3>
-    <h3>description: {{description}}</h3>
+<div class="friend" >
+    <img class="img" src="{{imageUrl}}" alt="{{presentName}}">
+    <h3>{{presentName}}</h3>
+    <p>Motivation: {{motivations}}</p>
+    <p>description: {{description}}</p>
     <a href="/presents/{{id}}/edit"><button type="button" class="btn btn-warning">Edit</button></a> 
     <form action="/presents/{{id}}/delete" method="post">
       <button type="submit" class="btn btn-danger">Delete</button>
@@ -15,15 +16,17 @@
 
 <form action="/presents/{{id}}" method="POST">
 
-  <label for="present">Send to a friend</label>
+  <label for="present">Send to</label>
   <select id="present" name="friend">
     {{#each ../foundUser.friends}}
     <option value="{{./this._id}}">{{./this.friendName}}</option>
     {{/each}}
   </select>
+  
     <button type="submit" class="btn btn-primary">Send present</button>
 </form>
 <br>
 <br>
-
+</div>
 {{/each}}
+</div>

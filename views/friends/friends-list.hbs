@@ -1,10 +1,13 @@
 <h2>Your friends</h2>
-
+<div class="friends-list" >
 {{#each foundUser.friends}}
+<div class="friend" >
 <img style="width: 100px" src="{{this.avatar}}" alt="{{this.friendName}}">
 <h3><a href="/friends/{{_id}}">{{this.friendName}}</a></h3>
 
 <form action="/friends/{{id}}/delete" method="post">
     <button type="submit" class="btn btn-danger">Delete</button>
 </form>
+</div>
 {{/each}}
+</div>
