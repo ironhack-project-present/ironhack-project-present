@@ -1,6 +1,6 @@
 <h2>All presents</h2>
-
-{{#each presents}}
+presents / 
+{{#each presents }}
     <img style="width: 100px" src="{{imageUrl}}" alt="{{presentName}}">
     <p> {{presentName}}</p>
     <p> {{motivations}}</p>
@@ -9,15 +9,17 @@
     <form action="/presents/{{id}}/delete" method="post">
         <button type="submit">Delete</button>
     </form>
-{{/each}}
+
 
 
 <form action="/friends/{{_id}}/">
   <label for="present">Send to a friend</label>
-  <select id="present" name="present">
-    {{#each foundUser.friends}}
-    <option value="{{this._id}}">{{this.friendName}}</option>
+  <select id="present" name="friend">
+    {{#each ../foundUser.friends}}
+    <option value="{{./this._id}}">{{./this.friendName}}</option>
     {{/each}}
   </select>
-  <button type="submit">Send to {{friendName}}</button>
+  <button type="submit">Send present</button>
 </form>
+
+{{/each}}
