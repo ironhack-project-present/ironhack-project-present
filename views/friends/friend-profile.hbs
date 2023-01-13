@@ -1,3 +1,4 @@
+
 <h2 class="second-title" >This is your friend <b>{{foundFriend.friendName}}</b> profile page!</h2>
 
 <h5> <b>Full name: </b>{{foundFriend.friendName}} {{foundFriend.friendSurname}} </h5>
@@ -9,9 +10,10 @@
     <button type="submit" class="btn btn-danger">Delete</button>
 </form> --}}
 <br>
+
 <br>
 <h3> Presents of {{foundFriend.friendName}}:</h3>
-
+<br>
 <div class="friends-list" >
 {{#each foundFriend.presentId}}
 <div class="friend" >
@@ -19,22 +21,7 @@
     <h2> {{this.presentName}}</h2>
     <h4> {{this.motivations}}</h4>
     <p> {{this.description}}</p>
-    
-    {{!-- <form action="/presents/{{id}}/delete" method="post">
-        <button type="submit">Delete</button>
-
-    </form> --}}
     </div>
 {{/each}}
 </div>
-
-{{!-- <form action="/friends/{{_id}}/">
-  <label for="present">Choose a present:</label>
-  <select id="present" name="present">
-    {{#each presents}}
-    <option value="{{presentName}}">{{presentName}}</option>
-    {{/each}}
-  </select>
-  <button type="submit">Add to {{friendName}}</button>
-</form> --}}
-
+</div>

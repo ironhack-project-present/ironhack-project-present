@@ -1,9 +1,11 @@
 body {
   padding: 50px;
+
   font: 14px 'Montserrat', sans-serif;
   color: #3E8BAA;
   background-color: #E9DDC6;
   
+
 }
 
 /* colors
@@ -17,6 +19,7 @@ a {
   text-decoration: none;
   color: #3E8BAA;
 }
+
 
 h1 {
   font-size: 5em;
@@ -71,6 +74,7 @@ select {
   margin-bottom: 160px;
   margin-top: 160px;
 }
+
 
 .center {
   font-family: 'Montserrat', sans-serif;
@@ -135,10 +139,12 @@ select {
 }
 
 .createPresent{
+
   font-family: 'Montserrat', sans-serif;
   color: #3E8BAA;
   height: 800px;
   /* background: url(https://www.incimages.com/uploaded_files/image/1920x1080/getty_845301446_385027.jpg); */
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -162,8 +168,10 @@ select {
   font-family: 'Montserrat', sans-serif;
   color: #3E8BAA;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  background-color: rgb(125, 255, 251);
+  padding: 20px;
 }
 .second-title {
   margin-top: 3rem;
@@ -178,6 +186,7 @@ select {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+
   background-color: #bbd8e161;
   border-radius: 20px;
   padding: 15px;
@@ -185,8 +194,11 @@ select {
     margin-bottom: 10px;
     margin-top: 10px;
   
+
 }
+
 .img {
+
   height: 100px;
   
   border-radius: 20px;
@@ -196,4 +208,5 @@ select {
   height: 100px;
   
   border-radius: 75px;
+
 }
