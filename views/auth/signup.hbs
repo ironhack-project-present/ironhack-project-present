@@ -1,15 +1,15 @@
 <div class="registration">
-<h1>Signup Page</h1>
+<h1 class="signup" >Signup Page</h1>
 
-<form action="/auth/signup" method="post">
+<form class="form" action="/auth/signup" method="post">
     <label for="Username">Username
-    <input type="text" name="username" placeholder="Enter your username">
+    <input type="text" name="username" placeholder="Enter your username" required>
     </label>
     <label for="Email">Email
-    <input type="text" name="email" placeholder="Enter your email">
+    <input type="text" name="email" placeholder="Enter your email" required>
     </label>
     <label for="Password">Password
-    <input type="password" name="password" placeholder="Enter your password">
+    <input type="password" name="password" placeholder="Enter your password" required>
     </label>
     <button type="submit" class="btn btn-primary">Create account</button>
 </form>

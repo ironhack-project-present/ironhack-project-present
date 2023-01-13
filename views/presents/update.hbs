@@ -1,9 +1,9 @@
-<h2>Edit the present</h2>
+<h2 class="second-title" >Edit the present</h2>
 
-<form action="/presents/{{id}}/edit" method="post">
-    <input type="text" name="presentName" value="{{presentName}}">
-    <input type="text" name="description" value="{{description}}">
-    <input type="text" name="motivations" value="{{motivations}}">
-    <input type="text" name="imageUrl" value="{{imageUrl}}">
-    <button type="submit">Update present</button>
+<form class="form" action="/presents/{{foundPresent._id}}/edit" method="post">
+    <input type="text" name="presentName" value="{{foundPresent.presentName}}">
+    <input type="text" name="description" value="{{foundPresent.description}}">
+    <input type="text" name="motivations" value="{{foundPresent.motivations}}">
+    <input type="text" name="imageUrl" value="{{foundPresent.imageUrl}}">
+    <button type="submit" class="btn btn-danger" >Update present</button>
 </form>

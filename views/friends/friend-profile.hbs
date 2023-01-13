@@ -1,9 +1,9 @@
-<h2>This is your friend {{foundFriend.friendName}} profile page!</h2>
+<h2 class="second-title" >This is your friend <b>{{foundFriend.friendName}}</b> profile page!</h2>
 
-<h5> Full name: {{foundFriend.friendName}} {{foundFriend.friendSurname}} </h5>
-<h5> City: {{foundFriend.city}}</h5>
-<h5> Birthday: {{foundFriend.birthday}}</h5>
-<img class="img" src="{{foundFriend.avatar}}" alt="avatar picture">
+<h5> <b>Full name: </b>{{foundFriend.friendName}} {{foundFriend.friendSurname}} </h5>
+<h5> <b>City: </b>{{foundFriend.city}}</h5>
+<h5> <b>Birthday:</b> {{foundFriend.birthday}}</h5>
+<img class="img-friend" src="{{foundFriend.avatar}}" alt="avatar picture">
 <br>
 {{!-- <form action="/friends/{{_id}}/delete" method="post">
     <button type="submit" class="btn btn-danger">Delete</button>
@@ -16,8 +16,8 @@
 {{#each foundFriend.presentId}}
 <div class="friend" >
     <img class="img" src="{{this.imageUrl}}" alt="{{this.presentName}}">
-    <p> {{this.presentName}}</p>
-    <p> {{this.motivations}}</p>
+    <h2> {{this.presentName}}</h2>
+    <h4> {{this.motivations}}</h4>
     <p> {{this.description}}</p>
     
     {{!-- <form action="/presents/{{id}}/delete" method="post">
