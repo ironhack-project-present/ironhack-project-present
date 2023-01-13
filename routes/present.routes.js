@@ -94,11 +94,12 @@ router.post("/presents/:id/edit", isLoggedIn, (req, res, next) => {
   currentUser.loggedIn = true;
   
   const { presentName, description, imageUrl, motivations } = req.body;
+  const presentImg = imageUrl === "" ? "/images/present-icon.png": imageUrl;
   const { id } = req.params;
   Present.findByIdAndUpdate(id, {
     presentName,
     description,
-    imageUrl,
+    imageUrl: presentImg,
     motivations,
   })
     .then(() => res.redirect("/presents/list"))

@@ -90,6 +90,7 @@ router.post("/:id/edit", isLoggedIn, (req, res, next) => {
   currentUser.loggedIn = true;
   
 const { friendName, friendSurname, birthday, city, avatar } = req.body;
+const avatarImg = avatar === "" ? "/images/avatar2.png": avatar;
   const { id } = req.params;
 console.log(id);
   Friend.findByIdAndUpdate(id, {
@@ -97,7 +98,7 @@ console.log(id);
     friendSurname,
     birthday,
     city,
-    avatar,
+    avatar: avatarImg,
   })
     .then(() => res.redirect(`/friends/${id}`))
     .catch((err) => console.log(err));
