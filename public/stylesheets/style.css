@@ -11,7 +11,6 @@ body {
 /* colors
 blue gradient
 #ffffff, #bbd6e1, #82b4c8, #40768c
-
 backgorund #E9DDC6;
 */
 
@@ -168,10 +167,10 @@ select {
   font-family: 'Montserrat', sans-serif;
   color: #3E8BAA;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  background-color: rgb(125, 255, 251);
-  padding: 20px;
+  
+  padding: 0px;
 }
 .second-title {
   margin-top: 3rem;
