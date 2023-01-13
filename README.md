@@ -1,9 +1,10 @@
 [![Deploy to Cyclic](https://deploy.cyclic.sh/button.svg)](https://deploy.cyclic.sh/)
-
-# Gift-app
-
+<br>
+# Gift app
+<br>
 ## Description
-Describe your project in one/two lines.
+<br>
+This is an application where can record your presents in a list and decide later when and who to gift if to as well as create list of friends and attribute the present to them.
 
 User Stories
 404 - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault
@@ -99,14 +100,11 @@ Links
 Trello
 Link to your trello board or picture of your physical board
 
-Git
-The url to your repository and to your deployed project
-
-Repository Link
+<br>
+## Github link
+[Slide link] (https://github.com/ironhack-project-present/ironhack-project-present)
+<br>
+## Presentation link
+[Slide link] (https://docs.google.com/presentation/d/1qW-OoCthAX57fifnVdV1uUkc1ZZ2aM6-nhz28XJaAdQ/edit#slide=id.p)
 
 Deploy Link
-
-Slides
-The url to your presentation slides
-
-Slides Link

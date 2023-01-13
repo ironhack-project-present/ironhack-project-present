@@ -1,11 +1,11 @@
 <div class="edit-present">
 <h2>Second thoughts about the gift? <br> Change it here!</h2>
-<br>
+<br><br>
 <form action="/presents/{{id}}/edit" method="post">
     <input type="text" name="presentName" value="{{presentName}}">
     <input type="text" name="description" value="{{description}}">
     <input type="text" name="motivations" value="{{motivations}}">
     <input type="text" name="imageUrl" value="{{imageUrl}}">
-    <button type="submit">Update present</button>
+    <button type="submit" class="btn btn-primary">Update present</button>
 </form>
 </div>
