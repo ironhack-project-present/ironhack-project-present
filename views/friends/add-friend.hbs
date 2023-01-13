@@ -1,12 +1,15 @@
 <div class="createFriend">
-<h1>Do you have someone in mind you can give a gift to? <br> Add it here!</h1>
+
+<h1>Someone in <b>mind</b> <br>
+    you can give a <b>gift</b> to? Add it here!</h1>
+
 <br><br><br>
-<form action="/friends/add-friend" method="post">
+<form class="form" action="/friends/add-friend" method="post">
     <input type="text" name="friendName" placeholder="Friend's name" >
     <input type="text" name="friendSurname" placeholder="Friend's surname" >
     <input type="date" name="birthday"  >
     <input type="text" name="city" placeholder="Friend's city" >
-    <input type="text" name="avatar" placeholder="Give it an image" >
+    <input type="text" name="avatar" placeholder="Image URL" >
     <button type="submit" class="btn btn-primary">Add friend</button>
 </form>
 </div>

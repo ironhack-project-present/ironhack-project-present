@@ -41,21 +41,14 @@ router.get("/presents/create", isLoggedIn, (req, res, next) => {
 router.post("/presents/create", isLoggedIn, (req, res, next) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
-  // if (req.body.imageUrl === "") {
-  //   const imgUrl =
-  //     "https://cdn.pixabay.com/photo/2013/07/12/13/43/present-147168_1280.png";
-  //   const { presentName, description, motivations } = req.body;
-  // } else {
-  //   const { presentName, description, imageUrl, motivations } = req.body;
-  // }
 
   const { presentName, description, imageUrl, motivations } = req.body;
-
+  const presentImg = imageUrl === "" ? "/images/present-icon.png": imageUrl;
   Present.create({
     presentName,
     description,
     motivations,
-    imageUrl,
+    imageUrl: presentImg
   })
     .then(() => res.redirect("/presents/list"))
     .catch((err) => console.log(err));
@@ -92,13 +85,14 @@ router.get("/presents/:id/edit", isLoggedIn, (req, res, next) => {
   currentUser.loggedIn = true;
   const { id } = req.params;
   Present.findById(id)
-    .then((foundPresent) => res.render("presents/update", foundPresent))
+    .then((foundPresent) => res.render("presents/update", {foundPresent, currentUser, loggedIn: true}))
     .catch((err) => console.log(err));
 });
 
 router.post("/presents/:id/edit", isLoggedIn, (req, res, next) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
+  
   const { presentName, description, imageUrl, motivations } = req.body;
   const { id } = req.params;
   Present.findByIdAndUpdate(id, {

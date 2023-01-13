@@ -1,16 +1,14 @@
-<div class="title">
-<h2>Your friends</h2>
-<br>
-<p>Click on your friend's name to see the gifts you've given them</p>
-</div>
+
+<h2 class="second-title">Your friends</h2>
+
 <div class="friends-list" >
 {{#each foundUser.friends}}
 <div class="friend" >
-<img style="width: 100px" src="{{this.avatar}}" alt="{{this.friendName}}">
+<img class="img-friend" src="{{this.avatar}}" alt="{{this.friendName}}">
 <h3><a href="/friends/{{_id}}">{{this.friendName}}</a></h3>
-
+<a href="/friends/{{id}}/edit"><button type="button" class="btn btn-warning">Edit</button></a> 
 <form action="/friends/{{id}}/delete" method="post">
-    <button type="submit" class="btn btn-danger">Delete</button>
+    <button type="submit" class="btn btn-danger">Remove</button>
 </form>
 </div>
 {{/each}}

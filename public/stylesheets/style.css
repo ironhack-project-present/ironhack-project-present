@@ -1,19 +1,86 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: black;
+
+  font: 14px 'Montserrat', sans-serif;
+  color: #3E8BAA;
+  background-color: #E9DDC6;
+  
+
 }
+
+/* colors
+blue gradient
+#ffffff, #bbd6e1, #82b4c8, #40768c
+
+backgorund #E9DDC6;
+*/
 
 a {
-  color: #00b7ff;
+  text-decoration: none;
+  color: #3E8BAA;
 }
 
+
+h1 {
+  font-size: 5em;
+}
+
+.navbar {
+  border-radius: 15px;
+}
+.nav, .navbar-brand, .navbar-nav {
+  --bs-nav-link-color: #19333c;
+  --bs-nav-link-hover-color: #40768c;
+  --bs-navbar-brand-color: none;
+}
+
+input[type=text] {
+  padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+input[type=date] {
+  padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+input[type=password] {
+  padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+select {
+  padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+}
+
+.homepage-title {
+  
+  font-size: 115px;
+  background: -webkit-linear-gradient(0deg, #ffffff, #bbd6e1, #82b4c8, #40768c );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 160px;
+  margin-top: 160px;
+}
+
+
 .center {
-  color: rgb(181, 158, 26);
-  font: italic bold Georgia, Serif;
-  text-shadow: -2px 2px 0 #0a0e27;
-  height: 600px;
-  background: url(https://cdn.mos.cms.futurecdn.net/Nr6W2YcVvepZGyDaShd8wU.jpg);
+  font-family: 'Montserrat', sans-serif;
+  color: #3E8BAA;
+  height: 800px;
+  /* background: url(https://cdn.mos.cms.futurecdn.net/Nr6W2YcVvepZGyDaShd8wU.jpg); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -25,11 +92,31 @@ a {
 }
 
 .registration{
-  color: rgb(241, 206, 10);
-  font: italic bold Georgia, Serif;
-  text-shadow: 1px -1px 0 #0a0e27;
-  height: 600px;
+  font-family: 'Montserrat', sans-serif;
+  color: #3E8BAA;
+  height: 800px;
   background: url(https://wallpaperaccess.com/full/1693777.jpg);
+  border-radius: 2%;
+  margin-top: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  
+}
+.signup, .login {
+  margin-bottom: 350px;
+}
+
+.createFriend {
+  font-family: 'Montserrat', sans-serif;
+  color: #3E8BAA;
+  height: 800px;
+  /* background: url(https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZnJpZW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -40,28 +127,24 @@ a {
   text-align: center;
 }
 
-.createFriend{
-  color: rgb(0, 91, 210);
-  font: italic bold Georgia, Serif;
-  text-shadow: -2px -2px 0 #0a0e27;
-  height: 600px;
-  background: url(https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZnJpZW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.btn-primary, .btn-danger, .btn-warning, .btn-dark  {
+  --bs-btn-color: #fff;
+  --bs-btn-hover-color: #fff;
+
+  --bs-btn-bg: #40768c;
+  --bs-btn-border-color: #40768c;
+
+  --bs-btn-hover-bg: #19333c;
+  --bs-btn-hover-border-color: #19333c;
 }
 
 .createPresent{
-  color: rgba(0, 170, 255, 0.811);
-  font: italic bold Georgia, Serif;
-  text-shadow: -2px -2px 0 #0a0e27;
-  height: 600px;
-  background: url(https://www.incimages.com/uploaded_files/image/1920x1080/getty_845301446_385027.jpg);
+
+  font-family: 'Montserrat', sans-serif;
+  color: #3E8BAA;
+  height: 800px;
+  /* background: url(https://www.incimages.com/uploaded_files/image/1920x1080/getty_845301446_385027.jpg); */
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -71,58 +154,59 @@ a {
   justify-content: center;
   text-align: center;
 }
+.edit-delete {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.edit-button {
+  margin-right: 15px;
+  
+}
 
 .friends-list {
+  font-family: 'Montserrat', sans-serif;
+  color: #3E8BAA;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   background-color: rgb(125, 255, 251);
   padding: 20px;
 }
+.second-title {
+  margin-top: 3rem;
+ margin-bottom: 2.5rem;
+}
+
 
 .friend {
+  height: 400px;
+  width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #d3d3d4;
+
+  background-color: #bbd8e161;
   border-radius: 20px;
-  padding: 5px;
+  padding: 15px;
+  margin-right: 13px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  
+
 }
 
 .img {
-  width: 130px;
+
+  height: 100px;
+  
   border-radius: 20px;
 }
 
-.title{
-  text-align: center;
-  background-color: rgb(201, 255, 253);
-  padding: 20px;
-}
+.img-friend {
+  height: 100px;
+  
+  border-radius: 75px;
 
-.title2{
-  background-color: rgb(201, 255, 253);
-  padding: 20px;
-}
-
-.list{
-  background-color: rgb(125, 255, 251);
-  padding: 20px;
-}
-
-.edit-present{
-  color: rgba(0, 170, 255, 0.811);
-  font: italic bold Georgia, Serif;
-  text-shadow: -2px -2px 0 #0a0e27;
-  height: 600px;
-  background: url(https://mgmtmagazine.com/wp-content/uploads/2019/05/indecisione.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 }

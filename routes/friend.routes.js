@@ -37,7 +37,7 @@ router.post("/add-friend", isLoggedIn, (req, res) => {
   const { currentUser } = req.session;
   currentUser.loggedIn = true;
   const { friendName, friendSurname, birthday, city, avatar } = req.body;
-
+  const avatarImg = avatar === "" ? "/images/avatar2.png": avatar;
   if (!friendName) {
     res.render("friends/add-friend", {
       errorMessage: "Please provide your friend Name",
@@ -45,7 +45,7 @@ router.post("/add-friend", isLoggedIn, (req, res) => {
     return;
   }
 
-  Friend.create({ friendName, friendSurname, birthday, city, avatar })
+  Friend.create({ friendName, friendSurname, birthday, city, avatar: avatarImg })
     .then(newFriend => {        
         return User.findById(currentUser.id)
         .then((user) => {
@@ -91,7 +91,7 @@ router.post("/:id/edit", isLoggedIn, (req, res, next) => {
   
 const { friendName, friendSurname, birthday, city, avatar } = req.body;
   const { id } = req.params;
-
+console.log(id);
   Friend.findByIdAndUpdate(id, {
     friendName,
     friendSurname,

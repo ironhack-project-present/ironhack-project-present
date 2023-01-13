@@ -1,24 +1,24 @@
 <div class="registration">
-<h1>Login Page</h1>
+<h1 class="login" >Login Page</h1>
 
-<form action="/auth/login" method="POST">
+<form class="form" action="/auth/login" method="POST">
 
     <label> Username
-      <input type="text" name="username" placeholder="user name here" />
+      <input type="text" name="username" placeholder="user name here" required/>
     </label>
 
     <label> Email
-      <input type="text" name="email" placeholder="email here" />
+      <input type="text" name="email" placeholder="email here" required/>
     </label>
 
     <label>Password
-      <input type="password" name="password" placeholder="********" />
+      <input type="password" name="password" placeholder="********" required />
     </label>
 
     <button type="submit" class="btn btn-primary">Login</button>
-
+</form>
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
-</form>
+
 </div>
