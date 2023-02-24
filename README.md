@@ -2,7 +2,7 @@
 
 ## Description
 
-This is an application where can record your presents in a list and decide later when and who to gift if to as well as create list of friends and attribute the present to them.
+This is an application where can record your presents in a list and decide later when and who to gift it to as well as create list of friends and attribute the present to them.
 
 
 ### Links
